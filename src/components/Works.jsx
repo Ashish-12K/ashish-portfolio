@@ -1,8 +1,8 @@
 const works = [
-  { id:1, title:'E-commerce FlipkartClone', img:'/flipkartcloneImg.png' },
-  { id:2, title:'Task Manager', img:'/taskImg.png' },
-  { id:3, title:'Game of Thrones Cards', img:'/GOTImg.png' },
-  { id:4, title:'Watch Website', img:'/watchImg.png' },
+  { id:1, title:'E-commerce FlipkartClone', img:'/flipkartcloneImg.png', description: 'A fully responsive Flipkart-inspired e-commerce UI with product listings, categories, search layout and modern card designs. Built to replicate a real online shopping experience with smooth navigation and clean components.' },
+  { id:2, title:'Task Manager', img:'/taskImg.png', description: 'A simple and efficient task manager app with add, edit and delete features. Designed for productivity with a clean interface and smooth user interactions. Fully responsive and easy to use.'},
+  { id:3, title:'Game of Thrones Cards', img:'/GOTImg.png', description: 'A custom Game of Thrones character card designed for a specific user, featuring personalized details, themed styling and a clean fantasy-inspired layout.' },
+  { id:4, title:'Watch Website', img:'/watchImg.png', description: 'A modern and responsive watch website showcasing premium timepieces with a clean layout, smooth product sections and a minimal design. Built for a refined user experience with fast loading and elegant visuals.' },
 ]
 
 export default function Works(){
@@ -16,7 +16,7 @@ export default function Works(){
             <img src={w.img} alt={w.title} className="object-cover w-full h-64" />
             <div className="p-6">
               <h4 className="text-xl font-semibold">{w.title}</h4>
-              <p className="text-sm text-gray-500 mt-2">Short description about this project.</p>
+              <p className="text-sm text-gray-500 mt-2">{w.description}</p>
             </div>
           </div>
         ))}
