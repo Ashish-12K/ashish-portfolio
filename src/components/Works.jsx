@@ -1,32 +1,34 @@
   const works = [
   { 
     id:1, 
+    title:'Watch Website', 
+    img:'/watchImg.png', 
+    description: 'A modern and responsive watch website showcasing premium timepieces with a clean layout, smooth product sections and a minimal design. Built for a refined user experience with fast loading and elegant visuals.',
+    link: 'https://watch-site-nu.vercel.app/'
+  },
+
+  { 
+    id:2, 
     title:'E-commerce FlipkartClone', 
     img:'/flipkartcloneImg.png', 
     description:'A fully responsive Flipkart-inspired e-commerce UI...',
     link: 'https://your-flipkart-demo.com'
   },
   { 
-    id:2, 
+    id:3, 
     title:'Task Manager', 
     img:'/taskImg.png', 
     description:'A simple and efficient task manager...',
     link: 'https://your-task-demo.com'
   },
   { 
-    id:3, 
+    id:4, 
     title:'Game of Thrones Cards', 
     img:'/GOTImg.png', 
     description:'A custom Game of Thrones character card...',
     link: 'https://your-got-demo.com'
   },
-  { 
-    id:4, 
-    title:'Watch Website', 
-    img:'/watchImg.png', 
-    description: 'A modern and responsive watch website showcasing premium timepieces with a clean layout, smooth product sections and a minimal design. Built for a refined user experience with fast loading and elegant visuals.',
-    link: 'https://watch-site-nu.vercel.app/'
-  },
+
   // {
   //   id:5,
   //   title:'Clothing Website',
