@@ -1,0 +1,185 @@
+<!-- public/demo-girls.html -->
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Petal & Thread — Girls Clothing</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* small extra styles */
+    .hero-gradient { background: linear-gradient(120deg,#fff0f6 0%, #fff7ed 100%); }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <!-- Header -->
+  <header class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="h-10 w-10 rounded-lg bg-pink-400 flex items-center justify-center text-white font-bold">P</div>
+      <div>
+        <div class="font-bold text-lg">Petal & Thread</div>
+        <div class="text-xs text-gray-500">Girls Clothing — Cute & Comfortable</div>
+      </div>
+    </div>
+    <nav class="hidden md:flex items-center gap-6 text-sm text-gray-700">
+      <a href="#collections" class="hover:underline">Collections</a>
+      <a href="#featured" class="hover:underline">Featured</a>
+      <a href="#about" class="hover:underline">About</a>
+      <a href="#contact" class="hover:underline">Contact</a>
+    </nav>
+    <div class="md:flex items-center gap-3 hidden">
+      <a href="#shop" class="px-4 py-2 bg-pink-500 text-white rounded-full text-sm">Shop Now</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero-gradient">
+    <div class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Sweet, comfy styles for every little star ✨</h1>
+        <p class="mt-4 text-gray-600 max-w-xl">Discover playful dresses, soft tees, cozy sets and seasonal picks for girls aged 0–12. Thoughtful fabrics, bright colors, and gentle fits.</p>
+        <div class="mt-6 flex gap-3">
+          <a href="#collections" class="px-5 py-3 bg-pink-500 text-white rounded-full">Browse Collections</a>
+          <a href="#featured" class="px-5 py-3 border rounded-full">See Featured</a>
+        </div>
+
+        <div class="mt-8 grid grid-cols-3 gap-4 max-w-sm">
+          <div class="text-center">
+            <div class="text-2xl font-bold">120+</div>
+            <div class="text-xs text-gray-500">Products</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold">Free</div>
+            <div class="text-xs text-gray-500">Shipping over ₹1999</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold">30</div>
+            <div class="text-xs text-gray-500">Days return</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden shadow-lg">
+        <img src="/work1.jpg" alt="girls clothes hero" class="w-full h-[420px] object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Collections -->
+  <section id="collections" class="max-w-6xl mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold mb-6">Collections</h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <article class="bg-white rounded-xl overflow-hidden shadow">
+        <img src="/work2.jpg" alt="dresses" class="w-full h-40 object-cover" />
+        <div class="p-4">
+          <h3 class="font-semibold">Party Dresses</h3>
+          <p class="text-xs text-gray-500 mt-2">Bright, soft and twirl-ready.</p>
+        </div>
+      </article>
+
+      <article class="bg-white rounded-xl overflow-hidden shadow">
+        <img src="/work3.jpg" alt="sets" class="w-full h-40 object-cover" />
+        <div class="p-4">
+          <h3 class="font-semibold">Cozy Sets</h3>
+          <p class="text-xs text-gray-500 mt-2">Comfort for play & sleep.</p>
+        </div>
+      </article>
+
+      <article class="bg-white rounded-xl overflow-hidden shadow">
+        <img src="/work4.jpg" alt="tees" class="w-full h-40 object-cover" />
+        <div class="p-4">
+          <h3 class="font-semibold">Graphic Tees</h3>
+          <p class="text-xs text-gray-500 mt-2">Fun motifs & gentle cotton.</p>
+        </div>
+      </article>
+
+      <article class="bg-white rounded-xl overflow-hidden shadow">
+        <img src="/work1.jpg" alt="accessories" class="w-full h-40 object-cover" />
+        <div class="p-4">
+          <h3 class="font-semibold">Accessories</h3>
+          <p class="text-xs text-gray-500 mt-2">Bows, hats & little extras.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section id="featured" class="bg-white py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <h3 class="text-3xl font-bold mb-6">Featured</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gray-50 rounded-xl p-4 shadow">
+          <img src="/work3.jpg" alt="product" class="w-full h-44 object-cover rounded" />
+          <h4 class="mt-4 font-semibold">Spring Blossom Dress</h4>
+          <div class="mt-2 flex items-center justify-between">
+            <div class="text-lg font-bold">₹1,299</div>
+            <button class="px-3 py-2 bg-pink-500 text-white rounded">Buy</button>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-xl p-4 shadow">
+          <img src="/work2.jpg" alt="product" class="w-full h-44 object-cover rounded" />
+          <h4 class="mt-4 font-semibold">Cozy Play Set</h4>
+          <div class="mt-2 flex items-center justify-between">
+            <div class="text-lg font-bold">₹899</div>
+            <button class="px-3 py-2 bg-pink-500 text-white rounded">Buy</button>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-xl p-4 shadow">
+          <img src="/work4.jpg" alt="product" class="w-full h-44 object-cover rounded" />
+          <h4 class="mt-4 font-semibold">Cute Graphic Tee</h4>
+          <div class="mt-2 flex items-center justify-between">
+            <div class="text-lg font-bold">₹499</div>
+            <button class="px-3 py-2 bg-pink-500 text-white rounded">Buy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-6xl mx-auto px-6 py-12">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h3 class="text-3xl font-bold">About Petal & Thread</h3>
+        <p class="mt-4 text-gray-600">We make gentle, playful clothing for little girls using soft fabrics and simple, cheerful designs. Our pieces are made for comfort, movement and easy care — so kids can be kids.</p>
+        <ul class="mt-6 text-gray-600 space-y-2">
+          <li>• Ethically sourced fabrics</li>
+          <li>• Gentle washes and safe dyes</li>
+          <li>• Free shipping over ₹1,999</li>
+        </ul>
+      </div>
+      <div>
+        <img src="/work1.jpg" alt="about" class="w-full h-64 object-cover rounded-xl shadow" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Footer -->
+  <footer id="contact" class="bg-pink-50 py-10">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-6 items-center">
+      <div>
+        <h4 class="text-2xl font-bold">Get in touch</h4>
+        <p class="text-gray-600 mt-2">Custom orders, sizes, wholesale — send us a message.</p>
+        <p class="mt-4">Email: <a href="mailto:hello@petalandthread.com" class="text-pink-600">hello@petalandthread.com</a></p>
+        <p>WhatsApp: <a href="https://wa.me/919999999999" class="text-pink-600">+91 99999 99999</a></p>
+      </div>
+
+      <form class="bg-white p-6 rounded-xl shadow" onsubmit="event.preventDefault(); alert('Demo form — replace with Formspree or API')">
+        <div class="grid grid-cols-1 gap-3">
+          <input required placeholder="Name" class="p-3 border rounded" />
+          <input required placeholder="Email" type="email" class="p-3 border rounded" />
+          <input placeholder="Phone / WhatsApp" class="p-3 border rounded" />
+          <textarea required placeholder="Message" class="p-3 border rounded"></textarea>
+          <button class="mt-2 px-4 py-3 bg-pink-500 text-white rounded">Send Message</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="text-center text-gray-500 mt-8">© <span id="year"></span> Petal & Thread</div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+</body>
+</html>
