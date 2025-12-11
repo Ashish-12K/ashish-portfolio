@@ -9,18 +9,20 @@
 
   { 
     id:2, 
+    title:'JUD clothing', 
+    img:'/JUDClothing.png', 
+    description:'JUD clothing is presented on a modern and responsive e-commerce website showcasing premium apparel with a clean, gallery-like layout, smooth product sections, and a truly minimal design. Built for a refined user experience with fast loading and elegant, high-definition visuals, this site delivers the best of contemporary fashion straight to your screen.',
+    link: 'clothing-site1-v5yy.vercel.app'
+  },
+
+  { 
+    id:3, 
     title:'E-commerce FlipkartClone', 
     img:'/flipkartcloneImg.png', 
     description:'A fully responsive Flipkart-inspired e-commerce UI...',
     link: 'https://your-flipkart-demo.com'
   },
-  { 
-    id:3, 
-    title:'Task Manager', 
-    img:'/taskImg.png', 
-    description:'A simple and efficient task manager...',
-    link: 'https://your-task-demo.com'
-  },
+  
   { 
     id:4, 
     title:'Game of Thrones Cards', 
