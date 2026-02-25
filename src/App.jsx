@@ -6,12 +6,12 @@ import Contact from './components/Contact'
 
 export default function App() {
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-full mx-auto">
       <Hero />
       <About />
       <Works />
       <Contact />
-      <footer className="py-8 text-center text-gray-500">© {new Date().getFullYear()} Ash — Web Development</footer>
+      {/* <footer className="py-8 text-center text-gray-500">© {new Date().getFullYear()} Ash — Web Development</footer> */}
     </div>
   )
 }

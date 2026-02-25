@@ -17,10 +17,10 @@
 
   { 
     id:3, 
-    title:'E-commerce FlipkartClone', 
-    img:'/flipkartcloneImg.png', 
-    description:'A fully responsive Flipkart-inspired e-commerce UI...',
-    link: 'https://your-flipkart-demo.com'
+    title:'Accessories Site', 
+    img:'/accessory.png', 
+    description:'An elegant accessories e-commerce website inspired by leading online marketplaces. It features a clean product grid, smooth navigation, intuitive user interface, and optimized performance for seamless browsing.',
+    link: 'https://accessories-site.vercel.app'
   },
   
   { 
