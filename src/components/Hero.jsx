@@ -5,9 +5,9 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center pt-28"
+      className="min-h-screen flex items-center pt-24"
     >
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+      <div className="max-w-10xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
         {/* LEFT SIDE */}
         <div>
@@ -25,7 +25,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-5xl md:text-6xl font-bold mb-1 leading-tight text-gray-100"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2 leading-tight text-gray-100"
           >
             Ashish{" "}
             <span className="text-teal-500">
@@ -37,7 +37,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-xl text-gray-300 mb-6"
+            className="text-lg md:text-xl text-gray-300 mb-6"
           >
             Full Stack Developer
           </motion.h2>
@@ -46,7 +46,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="text-gray-400 leading-relaxed mb-10 max-w-lg"
+            className="text-gray-400 leading-relaxed mb-8 max-w-lg"
           >
             I build scalable, responsive web applications using React,
             modern JavaScript, and backend APIs. Focused on clean
@@ -57,7 +57,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
-            className="flex gap-4"
+            className="flex flex-wrap gap-4"
           >
             <a
               href="#projects"
@@ -80,13 +80,14 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="flex justify-center"
+          className="flex justify-center mt-12 md:mt-0"
         >
           <div
             className="
               relative
-              w-[480px] h-[400px]
-              md:w-[520px] md:h-[420px]
+              w-full
+              max-w-[420px]
+              aspect-[6/5]
               rounded-2xl
               overflow-hidden
               bg-[#243041]

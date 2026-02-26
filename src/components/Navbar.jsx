@@ -21,10 +21,10 @@ export default function Navbar() {
         </div>
 
         <a
-          href="/resume.pdf"
+          href="http://www.fiverr.com/s/o8lPqVX"
           className="bg-teal-600 hover:bg-teal-700 px-5 py-2 rounded-lg transition"
         >
-          Resume
+          Fiverr
         </a>
       </div>
     </motion.nav>

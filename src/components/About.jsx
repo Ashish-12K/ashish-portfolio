@@ -3,7 +3,7 @@ import aboutImg from "../assets/aboutImg.png";
 
 export default function About() {
   return (
-    <section className="relative pt-12 pb-16 bg-[#1f2937] overflow-hidden">
+    <section className="relative pt-20 pb-16 bg-[#1f2937] overflow-hidden">
 
       {/* Vertical Divider */}
       {/* <div className="hidden md:block absolute left-[45%] top-0 h-full w-px bg-gray-700/40"></div> */}
@@ -33,13 +33,30 @@ export default function About() {
             software engineer.
           </p>
 
-          <a
-            href="#"
-            className="text-teal-500 hover:text-teal-400 transition font-medium"
-          >
-            Read more →
-          </a>
+          {/* Stats Section */}
+          <div className="mt-12 grid grid-cols-3 gap-8 border-t border-gray-700/40 pt-10">
+
+            <div>
+              <h3 className="text-4xl font-bold text-gray-100">02</h3>
+              <p className="text-gray-400 text-sm mt-2">Years of Experience</p>
+            </div>
+
+            <div>
+              <h3 className="text-4xl font-bold text-gray-100">5+</h3>
+              <p className="text-gray-400 text-sm mt-2">Happy Clients</p>
+            </div>
+
+            <div>
+              <h3 className="text-4xl font-bold text-gray-100">12+</h3>
+              <p className="text-gray-400 text-sm mt-2">Projects Completed</p>
+            </div>
+
+          </div>
+
         </motion.div>
+
+        
+          
 
         {/* RIGHT SIDE */}
         <motion.div

@@ -5,7 +5,7 @@ import {
   LayoutDashboard,
   Database,
   Zap,
-  Brain
+  ShoppingCart
 } from "lucide-react";
 
 const services = [
@@ -15,15 +15,21 @@ const services = [
     desc: "Building responsive and scalable user interfaces using React and modern component architecture."
   },
   {
-    icon: Server,
-    title: "Backend API Development",
-    desc: "Creating RESTful APIs with Node.js and Express focusing on structure and scalability."
-  },
-  {
     icon: LayoutDashboard,
     title: "Full Stack Applications",
     desc: "Integrating frontend, backend, and database into complete production-ready applications."
   },
+  {
+  icon: ShoppingCart,
+  title: "Ecommerce Development",
+  desc: "Developing scalable online stores with product management, cart functionality, payment integration, and optimized performance for better conversions."
+  },
+  {
+    icon: Server,
+    title: "Backend API Development",
+    desc: "Creating RESTful APIs with Node.js and Express focusing on structure and scalability."
+  },
+  
   {
     icon: Database,
     title: "Firebase & Database",
@@ -34,16 +40,11 @@ const services = [
     title: "Performance Optimization",
     desc: "Improving load time, optimizing rendering, and enhancing overall app performance."
   },
-  {
-    icon: Brain,
-    title: "Data Structures & Algorithms",
-    desc: "Strong problem-solving foundation with focus on scalable thinking and logic building."
-  }
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="pt-16 pb-24 bg-[#1f2937]">
+    <section id="services"className="pt-16 pb-24 bg-[#1f2937]">
       <div className="max-w-6xl mx-auto px-6">
 
         {/* Heading */}
