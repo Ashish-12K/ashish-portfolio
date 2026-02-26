@@ -1,50 +1,86 @@
+import { motion } from "framer-motion";
+
 export default function Contact() {
   return (
-    <section
-      id="contact"
-      className="px-6 md:px-8 py-8 bg-neutral-100 flex flex-col min-h-[50vh]"
-    >
-      {/* Main Content */}
-      <div className="flex-1">
-        <h3 className="text-5xl font-bold mb-6">Contact Me</h3>
-        {/* <hr className="border-gray-200 mb-8" /> */}
+    <section id="contact" className="pt-20 pb-12 bg-[#1f2937]">
+      <div className="max-w-7xl mx-auto px-6">
 
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-16">
+        {/* Heading */}
+        <motion.h2
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}
+  className="text-5xl font-bold mb-6 text-gray-100 relative inline-block"
+>
+  Contact <span className="text-teal-500">Me</span>
 
+  {/* Underline */}
+  <span className="absolute left-0 -bottom-2 w-full h-[3px] bg-teal-500"></span>
+</motion.h2>
+
+        {/* Contact Row */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 text-lg"
+        >
           {/* Email */}
-          <div className="flex items-center gap-3">
-            <p className="text-gray-600">Email:</p>
+          <div>
+            <span className="text-gray-400">Email:</span>{" "}
             <a
               href="mailto:ashish7840k@gmail.com"
-              className="font-medium hover:underline"
+              className="text-gray-100 hover:text-teal-400 transition"
             >
               ashish7840k@gmail.com
             </a>
           </div>
 
           {/* WhatsApp */}
-          <div className="flex items-center gap-3">
-            <p className="text-gray-600">WhatsApp:</p>
+          <div className="flex items-center gap-4">
+            <span className="text-gray-400">WhatsApp:</span>
             <a
               href="https://wa.me/917992218094"
-              className="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-teal-600 hover:bg-teal-700 px-6 py-2 rounded-full transition shadow-lg shadow-teal-600/20"
             >
               Message
             </a>
           </div>
 
           {/* Phone */}
-          <div className="flex items-center gap-3">
-            <p className="text-gray-600">Phone:</p>
-            <span className="font-medium">+91 7992218094</span>
+          <div>
+            <span className="text-gray-400">Phone:</span>{" "}
+            <a
+              href="tel:+917992218094"
+              className="text-gray-100 hover:text-teal-400 transition"
+            >
+              +91 7992218094
+            </a>
           </div>
 
-        </div>
-      </div>
+          {/* Fiverr */}
+          <div>
+            <span className="text-gray-400">Fiverr:</span>{" "}
+            <a
+              href="http://www.fiverr.com/s/o8lPqVX"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-100 hover:text-teal-400 transition"
+            >
+              View Profile
+            </a>
+          </div>
+        </motion.div>
 
-      {/* Copyright */}
-      <div className="pt-6 mt-6 border-gray-200 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} Ash — Web Development
+        {/* Footer */}
+        <div className="text-center text-gray-500 mt-16 text-sm">
+          © {new Date().getFullYear()} Ash — Web Development
+        </div>
+
       </div>
     </section>
   );
