@@ -1,50 +1,16 @@
 import { motion } from "framer-motion";
-import {
-  Code,
-  Server,
-  LayoutDashboard,
-  Database,
-  Zap,
-  ShoppingCart
-} from "lucide-react";
+import { services } from "../data/projects";
 
-const services = [
-  {
-    icon: Code,
-    title: "Frontend Development",
-    desc: "Building responsive and scalable user interfaces using React and modern component architecture."
-  },
-  {
-    icon: LayoutDashboard,
-    title: "Full Stack Applications",
-    desc: "Integrating frontend, backend, and database into complete production-ready applications."
-  },
-  {
-  icon: ShoppingCart,
-  title: "Ecommerce Development",
-  desc: "Developing scalable online stores with product management, cart functionality, payment integration, and optimized performance for better conversions."
-  },
-  {
-    icon: Server,
-    title: "Backend API Development",
-    desc: "Creating RESTful APIs with Node.js and Express focusing on structure and scalability."
-  },
-  
-  {
-    icon: Database,
-    title: "Firebase & Database",
-    desc: "Implementing authentication, real-time data, and secure database systems."
-  },
-  {
-    icon: Zap,
-    title: "Performance Optimization",
-    desc: "Improving load time, optimizing rendering, and enhancing overall app performance."
-  },
-];
-
-export default function Services() {
+export default function Services({ darkMode }) {
   return (
-    <section id="services"className="pt-16 pb-24 bg-[#1f2937]">
+    <section
+      id="services"
+      className="pt-16 pb-24"
+      style={{
+        backgroundColor: darkMode ? "#1f2937" : "#f8fafc",
+        color: darkMode ? "#e5e7eb" : "#0f172a",
+      }}
+    >
       <div className="max-w-6xl mx-auto px-6">
 
         {/* Heading */}
@@ -52,14 +18,16 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-5xl font-bold mb-6 text-gray-100"
+          className="text-5xl font-bold mb-6"
         >
           What I <span className="text-teal-500">Do</span>
         </motion.h2>
 
         {/* Description */}
-        <p className="text-gray-400 max-w-2xl mb-16">
+        <p
+          className="max-w-2xl mb-16"
+          style={{ color: darkMode ? "#9ca3af" : "#64748b" }}
+        >
           Focused on building modern, scalable and performance-driven web applications.
         </p>
 
@@ -74,8 +42,13 @@ export default function Services() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                viewport={{ once: true }}
-                className="group bg-[#243041] p-8 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10"
+                className="group p-8 rounded-xl transition-all duration-300 hover:-translate-y-2"
+                style={{
+                  backgroundColor: darkMode ? "#243041" : "#ffffff",
+                  boxShadow: darkMode
+                    ? "0 10px 30px rgba(20,184,166,0.08)"
+                    : "0 10px 30px rgba(0,0,0,0.05)",
+                }}
               >
                 {/* Icon */}
                 <div className="mb-6">
@@ -86,12 +59,15 @@ export default function Services() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-semibold mb-4 text-gray-100">
+                <h3 className="text-xl font-semibold mb-4">
                   {service.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-400 leading-relaxed">
+                <p
+                  className="leading-relaxed"
+                  style={{ color: darkMode ? "#d1d5db" : "#475569" }}
+                >
                   {service.desc}
                 </p>
               </motion.div>

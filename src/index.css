@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
-body {
-  @apply bg-[#1f2937] text-gray-100 antialiased;
+.light {
+  background-color: #f8fafc;   /* soft white */
+  color: #0f172a;
+}
+
+.dark {
+  background-color: #1f2937;   /* deep greenish-dark */
+  color: #e5e7eb;
 }

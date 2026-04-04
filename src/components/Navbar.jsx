@@ -1,31 +1,55 @@
 import { motion } from "framer-motion";
 
-export default function Navbar() {
+export default function Navbar({ darkMode, setDarkMode }) {
   return (
     <motion.nav
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 w-full z-50 bg-[#18212f]/80 backdrop-blur-md border-b border-gray-800"
+      className="fixed top-0 w-full z-50 backdrop-blur-md border-b border-gray-800"
+      style={{
+        backgroundColor: darkMode ? "rgba(24,33,47,0.8)" : "rgba(255,255,255,0.8)",
+      }}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+
+        {/* Logo */}
         <h1 className="text-xl font-bold">
           Ashish<span className="text-teal-500">.</span>
         </h1>
 
-        <div className="hidden md:flex gap-10 text-gray-400">
-          <a href="#home" className="hover:text-white transition">Home</a>
-          <a href="#services" className="hover:text-white transition">Services</a>
-          <a href="#projects" className="hover:text-white transition">Projects</a>
-          <a href="#contact" className="hover:text-white transition">Contact</a>
+        {/* Links */}
+        <div className="hidden md:flex gap-10 text-gray-500">
+          <a href="#home" className="hover:text-teal-500 transition">Home</a>
+          <a href="#services" className="hover:text-teal-500 transition">Services</a>
+          <a href="#projects" className="hover:text-teal-500 transition">Projects</a>
+          <a href="#contact" className="hover:text-teal-500 transition">Contact</a>
         </div>
 
-        <a
-          href="http://www.fiverr.com/s/o8lPqVX"
-          className="bg-teal-600 hover:bg-teal-700 px-5 py-2 rounded-lg transition"
-        >
-          Fiverr
-        </a>
+        {/* Right side */}
+        <div className="flex items-center gap-4">
+
+          {/* Toggle */}
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="w-12 h-6 flex items-center bg-gray-300 rounded-full p-1 cursor-pointer"
+          >
+            <div
+              className={`bg-white w-4 h-4 rounded-full shadow-md transform duration-300 ${
+                darkMode ? "translate-x-6" : ""
+              }`}
+            />
+          </button>
+
+          {/* Fiverr */}
+          <a
+            href="http://www.fiverr.com/s/o8lPqVX"
+            className="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-lg transition"
+          >
+            Fiverr
+          </a>
+
+        </div>
       </div>
     </motion.nav>
   );

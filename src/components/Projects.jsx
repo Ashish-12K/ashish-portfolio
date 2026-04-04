@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
-export default function Projects() {
+export default function Projects({ darkMode }) {
   const works = [
     { 
       id:1, 
@@ -34,45 +34,71 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-12 bg-[#1f2937]">
-      <div className="max-w-7xl mx-auto px-6">
+    <section
+      id="projects"
+      className="py-16"
+      style={{
+        backgroundColor: darkMode ? "#1f2937" : "#f8fafc",
+        color: darkMode ? "#e5e7eb" : "#0f172a",
+      }}
+    >
+      <div className="max-w-6xl mx-auto px-3">
 
+        {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
           className="text-4xl font-bold text-center mb-16"
         >
           Featured <span className="text-teal-500">Projects</span>
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-10">
+        {/* Grid */}
+        <div className="grid md:grid-cols-2 gap-8">
           {works.map((work, index) => (
             <motion.div
               key={work.id}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group bg-[#243041] rounded-2xl overflow-hidden border border-gray-800 hover:-translate-y-3 hover:border-emerald-500/40 transition-all duration-300 shadow-lg hover:shadow-emerald-500/10"
+              className="group rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-3"
+              style={{
+                backgroundColor: darkMode ? "#243041" : "#ffffff",
+                border: darkMode
+                  ? "1px solid #374151"
+                  : "1px solid #e2e8f0",
+                boxShadow: darkMode
+                  ? "0 10px 30px rgba(20,184,166,0.08)"
+                  : "0 10px 30px rgba(0,0,0,0.05)",
+              }}
             >
               {/* Image */}
-              <div className="h-60 overflow-hidden">
+              <a
+                  href={work.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+              >
+              <div className="h-48 sm:h-60 md:h-72 lg:h-80 overflow-hidden">
                 <img
                   src={work.img}
                   alt={work.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                 />
               </div>
-
-              {/* Content */}
+              
+              </a>
+              {/* Content
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-3">
                   {work.title}
                 </h3>
 
-                <p className="text-gray-400 mb-6 text-sm leading-relaxed">
+                <p
+                  className="mb-6 text-sm leading-relaxed"
+                  style={{
+                    color: darkMode ? "#d1d5db" : "#475569",
+                  }}
+                >
                   {work.description}
                 </p>
 
@@ -85,8 +111,7 @@ export default function Projects() {
                   <FaExternalLinkAlt />
                   Live Demo
                 </a>
-
-              </div>
+              </div> */}
             </motion.div>
           ))}
         </div>

@@ -1,106 +1,109 @@
 import { motion } from "framer-motion";
-import profile from "../assets/profile.png";
+import profile2 from "../assets/profile2.png";
 
-export default function Hero() {
+export default function Hero({ darkMode }) {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center pt-24"
+      className="min-h-screen flex items-center pt-24 relative overflow-hidden"
+      style={{
+        backgroundColor: darkMode ? "#1f2937" : "#f8fafc",
+        color: darkMode ? "#e5e7eb" : "#0f172a",
+      }}
     >
-      <div className="max-w-10xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      {/* Glow background */}
+      <div className="absolute top-[-100px] right-[-100px] w-[300px] h-[300px] bg-teal-500/20 blur-[120px] rounded-full"></div>
 
-        {/* LEFT SIDE */}
+      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
+        {/* LEFT */}
         <div>
 
+          {/* Tagline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-gray-400 mb-4"
+            className="mb-4 text-sm uppercase tracking-widest text-teal-500"
           >
-            Hi, I'm
+            Available for freelance
           </motion.p>
 
+          {/* Main Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2 leading-tight text-gray-100"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4"
           >
-            Ashish{" "}
+            I build modern <br />
             <span className="text-teal-500">
-              Kumar
+              high-converting websites
             </span>
           </motion.h1>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-lg md:text-xl text-gray-300 mb-6"
-          >
-            Full Stack Developer
-          </motion.h2>
-
+          {/* Subtext */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="text-gray-400 leading-relaxed mb-8 max-w-lg"
+            className="max-w-lg mb-8"
+            style={{ color: darkMode ? "#9ca3af" : "#64748b" }}
           >
-            I build scalable, responsive web applications using React,
-            modern JavaScript, and backend APIs. Focused on clean
-            architecture, performance, and problem solving.
+            Helping businesses grow with fast, scalable and beautifully designed web applications.
           </motion.p>
 
+          {/* Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            className="flex flex-wrap gap-4"
+            className="flex gap-4"
           >
             <a
               href="#projects"
-              className="bg-teal-600 hover:bg-teal-700 px-6 py-3 rounded-lg transition duration-300 shadow-lg shadow-teal-600/20"
+              className="bg-teal-600 hover:bg-teal-700 px-6 py-3 rounded-lg text-white font-medium shadow-md shadow-teal-500/20"
             >
-              View Projects
+              View Work
             </a>
 
             <a
-              href="/resume.pdf"
-              className="border border-gray-600 hover:border-teal-500 px-6 py-3 rounded-lg transition duration-300 text-gray-300 hover:text-white"
+              href="https://wa.me/917992218094"
+              className="px-6 py-3 rounded-lg border"
+              style={{
+                borderColor: darkMode ? "#4b5563" : "#cbd5e1",
+              }}
             >
-              Download Resume
+              Hire Me
             </a>
           </motion.div>
+
         </div>
 
-        {/* RIGHT SIDE IMAGE */}
+
+
+        {/* RIGHT */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="flex justify-center mt-12 md:mt-0"
-        >
-          <div
-            className="
-              relative
-              w-full
-              max-w-[420px]
-              aspect-[6/5]
-              rounded-2xl
-              overflow-hidden
-              bg-[#243041]
-              shadow-[0_0_40px_rgba(20,184,166,0.15)]
-            "
-          >
-            <img
-              src={profile}
-              alt="Ashish Kumar"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </motion.div>
+  initial={{ opacity: 0, scale: 0.9 }}
+  animate={{ opacity: 1, scale: 1 }}
+  className="flex justify-center relative"
+>
+  <div className="relative flex items-end justify-center">
+
+    {/* CURVED BACKGROUND (THIS IS THE MAGIC) */}
+    <div
+      className="absolute bottom-0 w-[300px] md:w-[420px] h-[360px] md:h-[500px]"
+      style={{
+       background: "linear-gradient(135deg, #2dd4bf, #0f766e)",
+        borderRadius: "60% 40% 70% 30% / 40% 60% 30% 70%",
+      }}
+    ></div>
+
+    {/* IMAGE */}
+    <img
+      src={profile2}
+      alt="Ashish"
+      className="relative z-10 w-[260px] md:w-[320px]"
+    />
+
+  </div>
+</motion.div>
 
       </div>
     </section>
