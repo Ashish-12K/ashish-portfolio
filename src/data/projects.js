@@ -4,19 +4,22 @@ import {
   LayoutDashboard,
   Database,
   Zap,
-  ShoppingCart
+  ShoppingCart,
+  Globe,
+  Settings,
+  Building
 } from "lucide-react";
 
 export const services = [
   {
-    icon: Code,
-    title: "Frontend Development",
-    desc: "Building responsive and scalable user interfaces using React and modern component architecture."
+    icon: LayoutDashboard,
+    title: "Landing Pages",
+    desc: "High-converting landing pages designed to capture leads and grow your business effectively."
   },
   {
-    icon: LayoutDashboard,
-    title: "Full Stack Applications",
-    desc: "Integrating frontend, backend, and database into complete production-ready applications."
+    icon: Code,
+    title: "Custom Web Development",
+    desc: "Tailored web applications using modern technologies like React and Node.js based on your business needs."
   },
   {
   icon: ShoppingCart,
@@ -25,18 +28,28 @@ export const services = [
   },
   {
     icon: Server,
-    title: "Backend API Development",
-    desc: "Creating RESTful APIs with Node.js and Express focusing on structure and scalability."
+    title: "Shopify Store Development",
+    desc: "Complete Shopify store setup with custom design, product pages, and smooth checkout to increase sales."
   },
   
   {
-    icon: Database,
-    title: "Firebase & Database",
-    desc: "Implementing authentication, real-time data, and secure database systems."
+    icon: Building,
+    title: "Business Website Development",
+    desc: "Professional websites that build trust and convert visitors into customers. Fully responsive and fast-loading."
   },
   {
     icon: Zap,
     title: "Performance Optimization",
     desc: "Improving load time, optimizing rendering, and enhancing overall app performance."
   },
+  {
+    icon: Globe,
+    title: "Website Redesign",
+    desc: "Transform outdated websites into modern, visually appealing, and high-performing platforms.",
+  },
+  {
+    icon: Settings,
+    title: "Website Maintenance & Support",
+    desc: "Ongoing support, updates, bug fixes, and performance monitoring to keep your website running smoothly and securely.",
+  }
 ];

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import profile2 from "../assets/profile2.png";
+import Bubble from "./Bubble";
 
 export default function Hero({ darkMode }) {
   return (
@@ -104,6 +105,18 @@ export default function Hero({ darkMode }) {
 
   </div>
 </motion.div>
+
+
+      <div className="absolute inset-0 pointer-events-none">
+    <Bubble delay={0} size={20} left={10} />
+    <Bubble delay={1} size={30} left={30} />
+    <Bubble delay={2} size={25} left={50} />
+    <Bubble delay={0.5} size={18} left={70} />
+    <Bubble delay={1.5} size={35} left={85} />
+  </div>
+
+
+
 
       </div>
     </section>

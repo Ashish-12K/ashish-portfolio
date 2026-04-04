@@ -26,18 +26,14 @@ export default function About({ darkMode }) {
             className="leading-relaxed mb-4"
             style={{ color: darkMode ? "#d1d5db" : "#475569" }}
           >
-            I build modern, scalable web applications with a strong emphasis on 
-            performance and clean architecture. I approach development with a 
-            problem-solving mindset and a focus on long-term maintainability.
+           I help businesses build modern, high-performing websites and Shopify stores that not only look great but also drive real results and growth.
           </p>
 
           <p
             className="leading-relaxed mb-6"
             style={{ color: darkMode ? "#d1d5db" : "#475569" }}
           >
-            I continuously refine my technical skills through hands-on projects 
-            and algorithmic challenges, striving to grow into a well-rounded 
-            software engineer.
+            I focus on delivering clean, responsive, and user-friendly solutions tailored to each client’s needs. From idea to deployment, I ensure smooth communication, timely delivery, and strong attention to detail, aiming to exceed expectations with every project.
           </p>
 
           {/* Stats */}

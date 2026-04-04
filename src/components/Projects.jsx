@@ -48,10 +48,12 @@ export default function Projects({ darkMode }) {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold text-center mb-16"
+          className="text-5xl font-bold text-center mb-16"
+          
         >
           Featured <span className="text-teal-500">Projects</span>
         </motion.h2>
+          
 
         {/* Grid */}
         <div className="grid md:grid-cols-2 gap-8">

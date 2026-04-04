@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 export default function HireMe({ darkMode }) {
   return (
     <section
+      id="contact"
       className="pt-20 pb-5"
       style={{
         backgroundColor: darkMode ? "#1f2937" : "#f1f5f9",
