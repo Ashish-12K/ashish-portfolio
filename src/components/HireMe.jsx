@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
 
 export default function HireMe({ darkMode }) {
   return (
@@ -67,6 +68,78 @@ export default function HireMe({ darkMode }) {
 
       </div>
 
+
+            {/* Premium Social Links */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  className="flex justify-center gap-6 mt-10"
+>
+  {/* LinkedIn */}
+  <a
+    href="https://www.linkedin.com/in/ashish-kumar-67a1b63b7/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="relative group"
+  >
+    <div className="p-[2px] rounded-full bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-500">
+      <div
+        className="p-3 rounded-full backdrop-blur-md transition-all duration-300 group-hover:scale-110"
+        style={{
+          backgroundColor: darkMode
+            ? "rgba(36,48,65,0.6)"
+            : "rgba(255,255,255,0.6)",
+        }}
+      >
+        <FaLinkedin size={18} className="text-[#0A66C2]" />
+      </div>
+    </div>
+  </a>
+
+  {/* Instagram */}
+  <a
+  href="https://www.instagram.com/ashishk_092/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="relative group"
+>
+  <div className="p-0.5 rounded-full bg-linear-to-r from-pink-400 via-pink-500 to-rose-500">
+    <div
+      className="p-3 rounded-full backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(236,72,153,0.5)]"
+      style={{
+        backgroundColor: darkMode
+          ? "rgba(36,48,65,0.6)"
+          : "rgba(255,255,255,0.6)",
+      }}
+    >
+      <FaInstagram size={18} className="text-pink-600" />
+    </div>
+  </div>
+</a>
+
+  {/* Email */}
+  <a
+    href="mailto:ahish7840k@gmail.com"
+    className="relative group"
+  >
+    <div className="p-0.5 rounded-full bg-linear-to-r from-teal-400 to-green-500">
+      <div
+        className="p-3 rounded-full backdrop-blur-md transition-all duration-300 group-hover:scale-110"
+        style={{
+          backgroundColor: darkMode
+            ? "rgba(36,48,65,0.6)"
+            : "rgba(255,255,255,0.6)",
+        }}
+      >
+        <FaEnvelope size={18} className="text-teal-500" />
+      </div>
+    </div>
+  </a>
+</motion.div>
+
+
+
+
         
             <div
           className="text-center mt-16 text-sm"
@@ -74,6 +147,12 @@ export default function HireMe({ darkMode }) {
         >
           © {new Date().getFullYear()} Ashish Kumar. All rights reserved.
         </div>
+
+
+            
+
+
+
 
 
     </section>

@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+
+body {
+  font-family: 'Sora', sans-serif;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
 .light {
   background-color: #f8fafc;   /* soft white */
   color: #0f172a;
