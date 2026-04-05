@@ -1,38 +1,9 @@
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import { works } from "../data/works";
 
 export default function Projects({ darkMode }) {
-  const works = [
-    { 
-      id:1, 
-      title:'Watch Website', 
-      img:'/watchImg.png', 
-      description:'A responsive product showcase website built with modern UI principles, component reusability and optimized performance.',
-      link:'https://watch-site-nu.vercel.app/'
-    },
-    { 
-      id:2, 
-      title:'JUD Clothing', 
-      img:'/JUDClothing.png', 
-      description:'A structured e-commerce interface featuring dynamic routing, scalable layout design and performance optimization.',
-      link:'https://clothing-site1-v5yy.vercel.app'
-    },
-    { 
-      id:3, 
-      title:'Accessories Site', 
-      img:'/accessory.png', 
-      description:'Marketplace-inspired UI focusing on reusable components, clean architecture and smooth navigation.',
-      link:'https://accessories-site.vercel.app'
-    },
-    { 
-      id:4, 
-      title:'Game of Thrones Cards', 
-      img:'/GOTImg.png', 
-      description:'Interactive character card UI with dynamic rendering and structured component logic.',
-      link:'https://your-got-demo.com'
-    }
-  ];
-
+ 
   return (
     <section
       id="projects"
