@@ -66,6 +66,7 @@ const skillCategories = [
 export default function Skills({ darkMode }) {
   return (
     <section
+      id="skills"
       className="py-20"
       style={{
         backgroundColor: darkMode ? "#1f2937" : "#f8fafc",

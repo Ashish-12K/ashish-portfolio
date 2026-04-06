@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 import HireMe from "./components/HireMe";
 import Cursor from "./components/Cursor";
+import Journey from "./components/Journey";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -21,8 +22,8 @@ function App() {
       <Services darkMode={darkMode} />
       <Skills darkMode={darkMode} />
       <Projects darkMode={darkMode} />
+      <Journey darkMode={darkMode} />
       <HireMe darkMode={darkMode} />
-      {/* <Contact darkMode={darkMode} /> */}
       <Cursor />
     </div>
   );

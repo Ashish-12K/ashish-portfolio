@@ -1,7 +1,35 @@
 import { motion } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
+import { useEffect, useState } from "react";
 
 export default function Navbar({ darkMode, setDarkMode }) {
+
+  const [activeSection, setActiveSection] = useState("home");
+
+  useEffect(() => {
+  const handleScroll = () => {
+    const sections = document.querySelectorAll("section");
+    const scrollY = window.scrollY;
+
+    let current = "home";
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 100; // adjust for navbar
+      const sectionHeight = section.offsetHeight;
+
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    setActiveSection(current);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
   return (
     <motion.nav
       initial={{ y: -80, opacity: 0 }}
@@ -21,19 +49,89 @@ export default function Navbar({ darkMode, setDarkMode }) {
 
         {/* Links */}
         <div className="hidden md:flex gap-10 text-gray-500">
-          <a href="#home" className="hover:text-teal-500 transition">Home</a>
-          <a href="#services" className="hover:text-teal-500 transition">Services</a>
-          <a href="#projects" className="hover:text-teal-500 transition">Projects</a>
-          <a href="#contact" className="hover:text-teal-500 transition">Contact</a>
+
+          {/* Home */}
+          <a
+            href="#home"
+            className={`relative transition ${
+              activeSection === "home"
+                ? "text-teal-500"
+                : "hover:text-teal-500"
+            }`}
+          >
+            Home
+            {activeSection === "home" && (
+              <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-teal-500"></span>
+            )}
+          </a>
+
+          {/* Services */}
+          <a
+            href="#services"
+            className={`relative transition ${
+              activeSection === "services"
+                ? "text-teal-500"
+                : "hover:text-teal-500"
+            }`}
+          >
+            Services
+            {activeSection === "services" && (
+              <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-teal-500"></span>
+            )}
+          </a>
+
+          {/* Skills */}
+          <a
+            href="#skills"
+            className={`relative transition ${
+              activeSection === "skills"
+                ? "text-teal-500"
+                : "hover:text-teal-500"
+            }`}
+          >
+            Skills
+            {activeSection === "skills" && (
+              <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-teal-500"></span>
+            )}
+          </a>
+
+          {/* Projects */}
+          <a
+            href="#projects"
+            className={`relative transition ${
+              activeSection === "projects"
+                ? "text-teal-500"
+                : "hover:text-teal-500"
+            }`}
+          >
+            Projects
+            {activeSection === "projects" && (
+              <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-teal-500"></span>
+            )}
+          </a>
+
+          {/* Contact */}
+          <a
+            href="#contact"
+            className={`relative transition ${
+              activeSection === "contact"
+                ? "text-teal-500"
+                : "hover:text-teal-500"
+            }`}
+          >
+            Contact
+            {activeSection === "contact" && (
+              <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-teal-500"></span>
+            )}
+          </a>
+
         </div>
 
         {/* Right side */}
         <div className="flex items-center gap-4">
 
-          {/* Toggle */}
           <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
 
-          {/* Fiverr */}
           <a
             href="http://www.fiverr.com/s/o8lPqVX"
             className="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-lg transition"
