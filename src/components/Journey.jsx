@@ -17,7 +17,7 @@ const journeyData = [
     desc: "Worked on practical projects, improving problem-solving skills and understanding client requirements.",
   },
   {
-    year: "2025",
+    year: "2024",
     title: "Advanced Development & Growth",
     desc: "Enhancing full-stack skills with Node.js and Firebase while focusing on performance and scalability.",
   },
