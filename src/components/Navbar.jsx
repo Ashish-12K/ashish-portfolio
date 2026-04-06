@@ -5,8 +5,36 @@ import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Navbar({ darkMode, setDarkMode }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   const navLinks = ["home", "services", "skills", "projects", "contact"];
+
+  // 🔥 Scroll tracking (for underline)
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll("section");
+      const scrollY = window.scrollY;
+
+      let current = "home";
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+
+        if (
+          scrollY >= sectionTop &&
+          scrollY < sectionTop + sectionHeight
+        ) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
@@ -31,8 +59,22 @@ export default function Navbar({ darkMode, setDarkMode }) {
           {/* Desktop Links */}
           <div className="hidden md:flex gap-10 text-gray-500">
             {navLinks.map((link) => (
-              <a key={link} href={`#${link}`} className="hover:text-teal-500">
-                {link}
+              <a
+                key={link}
+                href={`#${link}`}
+                className={`relative transition ${
+                  activeSection === link
+                    ? "text-teal-500"
+                    : "hover:text-teal-500"
+                }`}
+              >
+                {/* Capitalize text */}
+                {link.charAt(0).toUpperCase() + link.slice(1)}
+
+                {/* 🔥 Underline */}
+                {activeSection === link && (
+                  <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-teal-500 rounded"></span>
+                )}
               </a>
             ))}
           </div>
@@ -42,7 +84,6 @@ export default function Navbar({ darkMode, setDarkMode }) {
 
             <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
 
-            {/* Fiverr (hidden on mobile optional) */}
             <a
               href="http://www.fiverr.com/s/o8lPqVX"
               className="hidden md:block bg-teal-600 text-white px-5 py-2 rounded-lg"
@@ -72,11 +113,10 @@ export default function Navbar({ darkMode, setDarkMode }) {
             onClick={() => setMenuOpen(false)}
           ></div>
 
-          {/* Sidebar Panel */}
+          {/* Sidebar */}
           <motion.div
             initial={{ x: 300 }}
             animate={{ x: 0 }}
-            exit={{ x: 300 }}
             className="w-64 h-full p-6"
             style={{
               backgroundColor: darkMode ? "#1f2937" : "#ffffff",
@@ -97,14 +137,18 @@ export default function Navbar({ darkMode, setDarkMode }) {
                   key={link}
                   href={`#${link}`}
                   onClick={() => setMenuOpen(false)}
-                  className="capitalize hover:text-teal-500"
+                  className={`capitalize transition ${
+                    activeSection === link
+                      ? "text-teal-500"
+                      : "hover:text-teal-500"
+                  }`}
                 >
                   {link}
                 </a>
               ))}
             </div>
 
-            {/* Fiverr inside sidebar */}
+            {/* Fiverr */}
             <a
               href="http://www.fiverr.com/s/o8lPqVX"
               className="mt-8 inline-block bg-teal-600 text-white px-5 py-2 rounded-lg"
