@@ -1,146 +1,119 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
-import { useEffect, useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Navbar({ darkMode, setDarkMode }) {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const [activeSection, setActiveSection] = useState("home");
-
-  useEffect(() => {
-  const handleScroll = () => {
-    const sections = document.querySelectorAll("section");
-    const scrollY = window.scrollY;
-
-    let current = "home";
-
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 100; // adjust for navbar
-      const sectionHeight = section.offsetHeight;
-
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        current = section.getAttribute("id");
-      }
-    });
-
-    setActiveSection(current);
-  };
-
-  window.addEventListener("scroll", handleScroll);
-
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
+  const navLinks = ["home", "services", "skills", "projects", "contact"];
 
   return (
-    <motion.nav
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className="fixed top-0 w-full z-50 backdrop-blur-md border-b border-gray-800"
-      style={{
-        backgroundColor: darkMode ? "rgba(24,33,47,0.8)" : "rgba(255,255,255,0.8)",
-      }}
-    >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <>
+      {/* Navbar */}
+      <motion.nav
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        className="fixed top-0 w-full z-50 backdrop-blur-md border-b border-gray-800"
+        style={{
+          backgroundColor: darkMode
+            ? "rgba(24,33,47,0.8)"
+            : "rgba(255,255,255,0.8)",
+        }}
+      >
+        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
 
-        {/* Logo */}
-        <h1 className="text-xl font-bold">
-          Ashish<span className="text-teal-500">.</span>
-        </h1>
+          {/* Logo */}
+          <h1 className="text-xl font-bold">
+            Ashish<span className="text-teal-500">.</span>
+          </h1>
 
-        {/* Links */}
-        <div className="hidden md:flex gap-10 text-gray-500">
+          {/* Desktop Links */}
+          <div className="hidden md:flex gap-10 text-gray-500">
+            {navLinks.map((link) => (
+              <a key={link} href={`#${link}`} className="hover:text-teal-500">
+                {link}
+              </a>
+            ))}
+          </div>
 
-          {/* Home */}
-          <a
-            href="#home"
-            className={`relative transition ${
-              activeSection === "home"
-                ? "text-teal-500"
-                : "hover:text-teal-500"
-            }`}
-          >
-            Home
-            {activeSection === "home" && (
-              <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-teal-500"></span>
-            )}
-          </a>
+          {/* Right */}
+          <div className="flex items-center gap-4">
 
-          {/* Services */}
-          <a
-            href="#services"
-            className={`relative transition ${
-              activeSection === "services"
-                ? "text-teal-500"
-                : "hover:text-teal-500"
-            }`}
-          >
-            Services
-            {activeSection === "services" && (
-              <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-teal-500"></span>
-            )}
-          </a>
+            <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
 
-          {/* Skills */}
-          <a
-            href="#skills"
-            className={`relative transition ${
-              activeSection === "skills"
-                ? "text-teal-500"
-                : "hover:text-teal-500"
-            }`}
-          >
-            Skills
-            {activeSection === "skills" && (
-              <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-teal-500"></span>
-            )}
-          </a>
+            {/* Fiverr (hidden on mobile optional) */}
+            <a
+              href="http://www.fiverr.com/s/o8lPqVX"
+              className="hidden md:block bg-teal-600 text-white px-5 py-2 rounded-lg"
+            >
+              Fiverr
+            </a>
 
-          {/* Projects */}
-          <a
-            href="#projects"
-            className={`relative transition ${
-              activeSection === "projects"
-                ? "text-teal-500"
-                : "hover:text-teal-500"
-            }`}
-          >
-            Projects
-            {activeSection === "projects" && (
-              <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-teal-500"></span>
-            )}
-          </a>
+            {/* Hamburger */}
+            <button
+              className="md:hidden text-xl"
+              onClick={() => setMenuOpen(true)}
+            >
+              <FaBars />
+            </button>
 
-          {/* Contact */}
-          <a
-            href="#contact"
-            className={`relative transition ${
-              activeSection === "contact"
-                ? "text-teal-500"
-                : "hover:text-teal-500"
-            }`}
-          >
-            Contact
-            {activeSection === "contact" && (
-              <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-teal-500"></span>
-            )}
-          </a>
-
+          </div>
         </div>
+      </motion.nav>
 
-        {/* Right side */}
-        <div className="flex items-center gap-4">
+      {/* Sidebar */}
+      {menuOpen && (
+        <div className="fixed inset-0 z-50 flex">
 
-          <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
+          {/* Overlay */}
+          <div
+            className="flex-1 bg-black/50"
+            onClick={() => setMenuOpen(false)}
+          ></div>
 
-          <a
-            href="http://www.fiverr.com/s/o8lPqVX"
-            className="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-lg transition"
+          {/* Sidebar Panel */}
+          <motion.div
+            initial={{ x: 300 }}
+            animate={{ x: 0 }}
+            exit={{ x: 300 }}
+            className="w-64 h-full p-6"
+            style={{
+              backgroundColor: darkMode ? "#1f2937" : "#ffffff",
+            }}
           >
-            Fiverr
-          </a>
+            {/* Close */}
+            <button
+              className="mb-6 text-xl"
+              onClick={() => setMenuOpen(false)}
+            >
+              <FaTimes />
+            </button>
 
+            {/* Links */}
+            <div className="flex flex-col gap-6 text-lg">
+              {navLinks.map((link) => (
+                <a
+                  key={link}
+                  href={`#${link}`}
+                  onClick={() => setMenuOpen(false)}
+                  className="capitalize hover:text-teal-500"
+                >
+                  {link}
+                </a>
+              ))}
+            </div>
+
+            {/* Fiverr inside sidebar */}
+            <a
+              href="http://www.fiverr.com/s/o8lPqVX"
+              className="mt-8 inline-block bg-teal-600 text-white px-5 py-2 rounded-lg"
+            >
+              Fiverr
+            </a>
+          </motion.div>
         </div>
-      </div>
-    </motion.nav>
+      )}
+    </>
   );
 }
