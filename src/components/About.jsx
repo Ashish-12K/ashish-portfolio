@@ -47,7 +47,7 @@ export default function About({ darkMode }) {
           >
             <div>
               <h3 className="text-4xl font-bold">
-                02
+                04
               </h3>
               <p
                 className="text-sm mt-2"
@@ -59,7 +59,7 @@ export default function About({ darkMode }) {
 
             <div>
               <h3 className="text-4xl font-bold">
-                5+
+                8+
               </h3>
               <p
                 className="text-sm mt-2"
@@ -71,7 +71,7 @@ export default function About({ darkMode }) {
 
             <div>
               <h3 className="text-4xl font-bold">
-                12+
+                15+
               </h3>
               <p
                 className="text-sm mt-2"
