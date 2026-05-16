@@ -40,28 +40,23 @@ export default function Hero({ darkMode }) {
   return (
     <section
       id="home"
-      className="
-        min-h-[92vh] md:min-h-screen
-        flex items-center
-        pt-10 md:pt-24
-        relative overflow-x-hidden
-      "
+      className="min-h-screen flex items-center pt-10 md:pt-24 relative overflow-hidden"
       style={{
         backgroundColor: darkMode ? "#1f2937" : "#f8fafc",
         color: darkMode ? "#e5e7eb" : "#0f172a",
       }}
     >
       {/* Optimized Glow */}
-      <div className="absolute top-[-80px] right-[-80px] w-[200px] h-[200px] bg-teal-500/10 blur-[50px] rounded-full pointer-events-none"></div>
+      <div className="absolute top-[-80px] right-[-80px] w-[220px] h-[220px] bg-teal-500/10 blur-[70px] rounded-full pointer-events-none"></div>
 
       {/* MAIN CONTAINER */}
       <div className="w-full max-w-[1350px] mx-auto px-6 lg:px-10 grid md:grid-cols-2 gap-6 items-center">
 
         {/* LEFT SIDE */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35 }}
           className="z-10"
         >
 
@@ -72,10 +67,10 @@ export default function Hero({ darkMode }) {
               mb-4 px-4 py-2 rounded-full border
             "
             style={{
-              borderColor: "rgba(20,184,166,0.18)",
+              borderColor: "rgba(20,184,166,0.2)",
               backgroundColor: darkMode
                 ? "rgba(255,255,255,0.03)"
-                : "rgba(255,255,255,0.7)",
+                : "rgba(255,255,255,0.65)",
             }}
           >
             <div className="w-2 h-2 rounded-full bg-teal-500"></div>
@@ -115,7 +110,7 @@ export default function Hero({ darkMode }) {
               href="#projects"
               className="
                 bg-gradient-to-r from-teal-500 to-cyan-500
-                md:hover:scale-105
+                hover:scale-105
                 transition-transform duration-200
                 px-6 py-3 rounded-2xl
                 text-white font-semibold text-sm
@@ -155,7 +150,7 @@ export default function Hero({ darkMode }) {
                   className="
                     rounded-2xl p-3 border
                     transition-transform duration-200
-                    md:hover:-translate-y-1
+                    hover:-translate-y-1
                     will-change-transform
                   "
                   style={{
@@ -191,7 +186,7 @@ export default function Hero({ darkMode }) {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.35 }}
+          transition={{ duration: 0.4 }}
           className="flex justify-center md:justify-end relative"
         >
           <div className="relative flex items-center justify-center">
@@ -202,9 +197,6 @@ export default function Hero({ darkMode }) {
               alt="Ashish"
               loading="eager"
               decoding="async"
-              style={{
-                contain: "paint",
-              }}
               className="
                 relative z-10
                 w-[300px]
@@ -214,28 +206,19 @@ export default function Hero({ darkMode }) {
                 object-contain
                 md:-mt-2
                 select-none
-                will-change-transform
-                transform-gpu
               "
             />
           </div>
         </motion.div>
       </div>
 
-      {/* MOBILE BUBBLES */}
-      <div className="absolute inset-0 pointer-events-none md:hidden">
-        <Bubble delay={0} size={16} left={15} top="72%" />
-        <Bubble delay={1} size={22} left={50} top="76%" />
-        <Bubble delay={2} size={18} left={80} top="74%" />
-      </div>
-
-      {/* DESKTOP BUBBLES */}
-      <div className="absolute inset-0 pointer-events-none hidden md:block">
-        <Bubble delay={0} size={20} left={10} />
-        <Bubble delay={1} size={30} left={30} />
-        <Bubble delay={2} size={25} left={50} />
-        <Bubble delay={0.5} size={18} left={70} />
-        <Bubble delay={1.5} size={35} left={85} />
+      {/* FLOATING BUBBLES */}
+      <div className="absolute inset-0 pointer-events-none">
+        <Bubble delay={0} size={20} left={10} top="70%" />
+        <Bubble delay={1} size={30} left={30} top="75%" />
+        <Bubble delay={2} size={25} left={50} top="72%" />
+        <Bubble delay={0.5} size={18} left={70} top="78%" />
+        <Bubble delay={1.5} size={35} left={85} top="74%" />
       </div>
     </section>
   );

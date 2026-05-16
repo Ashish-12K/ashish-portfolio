@@ -27,7 +27,7 @@ export default function About({ darkMode }) {
         >
 
           {/* HEADING */}
-          <h2 className="text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
             About <span className="text-teal-500">me</span>
           </h2>
 
