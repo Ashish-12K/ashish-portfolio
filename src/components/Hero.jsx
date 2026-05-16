@@ -212,13 +212,13 @@ export default function Hero({ darkMode }) {
         </motion.div>
       </div>
 
-      {/* BUBBLES - hidden on mobile */}
-      <div className="absolute inset-0 pointer-events-none hidden md:block">
-        <Bubble delay={0} size={20} left={10} />
-        <Bubble delay={1} size={30} left={30} />
-        <Bubble delay={2} size={25} left={50} />
-        <Bubble delay={0.5} size={18} left={70} />
-        <Bubble delay={1.5} size={35} left={85} />
+      {/* FLOATING BUBBLES */}
+      <div className="absolute inset-0 pointer-events-none">
+        <Bubble delay={0} size={20} left={10} top="70%" />
+        <Bubble delay={1} size={30} left={30} top="75%" />
+        <Bubble delay={2} size={25} left={50} top="72%" />
+        <Bubble delay={0.5} size={18} left={70} top="78%" />
+        <Bubble delay={1.5} size={35} left={85} top="74%" />
       </div>
     </section>
   );
