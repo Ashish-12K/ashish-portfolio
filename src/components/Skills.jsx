@@ -19,8 +19,8 @@ import {
   SiExpress,
   SiRedux,
   SiShopify,
-  SiFramer,
   SiFigma,
+  SiFramer,
 } from "react-icons/si";
 
 const skillCategories = [
@@ -86,49 +86,58 @@ export default function Skills({ darkMode }) {
         color: darkMode ? "#e5e7eb" : "#0f172a",
       }}
     >
-      {/* Glow */}
-      <div className="absolute top-[-100px] right-[-100px] w-[260px] h-[260px] bg-teal-500/10 blur-[120px] rounded-full"></div>
+      {/* Optimized Glow */}
+      <div className="absolute top-[-80px] right-[-80px] w-[220px] h-[220px] bg-teal-500/10 blur-[70px] rounded-full pointer-events-none"></div>
 
-      {/* CONTAINER */}
+      {/* Container */}
       <div className="w-full max-w-[1350px] mx-auto px-6 lg:px-10">
 
-        {/* HEADING */}
+        {/* Heading */}
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-5xl font-bold mb-12"
+          transition={{ duration: 0.35 }}
+          className="text-4xl md:text-5xl font-bold mb-12"
         >
-          My Technical
+          My Technical{" "}
           <span className="text-teal-500">
-            {" "}Expertise
+            Expertise
           </span>
         </motion.h2>
 
-        {/* CATEGORIES */}
+        {/* Categories */}
         <div className="space-y-10">
           {skillCategories.map((category, i) => (
-            <div key={i}>
-
-              {/* CATEGORY TITLE */}
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.35 }}
+            >
+              {/* Category Title */}
               <h3 className="text-base font-semibold mb-4 text-teal-500 tracking-wide">
                 {category.title}
               </h3>
 
-              {/* SKILLS GRID */}
+              {/* Skills Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
 
                 {category.skills.map((skill, index) => {
                   const Icon = skill.icon;
 
                   return (
-                    <motion.div
+                    <div
                       key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.04 }}
-                      className="flex flex-col items-center justify-center rounded-xl p-4 hover:-translate-y-1 transition-all duration-300 border backdrop-blur-md"
+                      className="
+                        flex flex-col items-center justify-center
+                        rounded-xl p-4
+                        border
+                        transition-transform duration-200
+                        hover:-translate-y-1
+                        will-change-transform
+                      "
                       style={{
                         borderColor: darkMode
                           ? "#374151"
@@ -136,21 +145,20 @@ export default function Skills({ darkMode }) {
 
                         backgroundColor: darkMode
                           ? "rgba(255,255,255,0.03)"
-                          : "rgba(255,255,255,0.55)",
+                          : "rgba(255,255,255,0.75)",
 
-                        boxShadow: darkMode
-                          ? "0 6px 15px rgba(20,184,166,0.04)"
-                          : "0 6px 15px rgba(0,0,0,0.03)",
+                        boxShadow:
+                          "0 2px 6px rgba(0,0,0,0.04)",
                       }}
                     >
-                      {/* ICON */}
+                      {/* Icon */}
                       <Icon
                         size={24}
                         color={skill.color}
-                        className="mb-2"
+                        className="mb-2 shrink-0"
                       />
 
-                      {/* NAME */}
+                      {/* Skill Name */}
                       <span
                         className="text-xs sm:text-sm text-center leading-tight"
                         style={{
@@ -161,11 +169,11 @@ export default function Skills({ darkMode }) {
                       >
                         {skill.name}
                       </span>
-                    </motion.div>
+                    </div>
                   );
                 })}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
