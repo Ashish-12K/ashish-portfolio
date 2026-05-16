@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+
 import {
   FaReact,
   FaNodeJs,
@@ -6,20 +7,20 @@ import {
   FaHtml5,
   FaCss3Alt,
   FaGithub,
-  FaCode
+  FaCode,
 } from "react-icons/fa";
+
 import {
   SiJavascript,
   SiTypescript,
   SiTailwindcss,
   SiBootstrap,
-  SiMongodb,
   SiFirebase,
   SiExpress,
   SiRedux,
   SiShopify,
   SiFramer,
-  SiFigma
+  SiFigma,
 } from "react-icons/si";
 
 const skillCategories = [
@@ -30,9 +31,9 @@ const skillCategories = [
       { name: "CSS", icon: FaCss3Alt, color: "#1572b6" },
       { name: "JavaScript", icon: SiJavascript, color: "#f7df1e" },
       { name: "TypeScript", icon: SiTypescript, color: "#3178c6" },
-      
     ],
   },
+
   {
     title: "Frameworks & Libraries",
     skills: [
@@ -41,17 +42,29 @@ const skillCategories = [
       { name: "Node.js", icon: FaNodeJs, color: "#3c873a" },
       { name: "Redux", icon: SiRedux, color: "#764abc" },
       { name: "Framer Motion", icon: SiFramer, color: "#e535ab" },
-      { name: "Firebase", icon: SiFirebase, color: "#ffca28" }
+      { name: "Firebase", icon: SiFirebase, color: "#ffca28" },
     ],
   },
+
   {
     title: "UI & Design",
     skills: [
-      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#38bdf8" },
-      { name: "Bootstrap", icon: SiBootstrap, color: "#7952b3" },
+      {
+        name: "Tailwind CSS",
+        icon: SiTailwindcss,
+        color: "#38bdf8",
+      },
+
+      {
+        name: "Bootstrap",
+        icon: SiBootstrap,
+        color: "#7952b3",
+      },
+
       { name: "Figma", icon: SiFigma, color: "#f24e1e" },
     ],
   },
+
   {
     title: "Tools & Workflows",
     skills: [
@@ -67,35 +80,44 @@ export default function Skills({ darkMode }) {
   return (
     <section
       id="skills"
-      className="py-20"
+      className="relative py-16 md:py-14 overflow-hidden"
       style={{
         backgroundColor: darkMode ? "#1f2937" : "#f8fafc",
         color: darkMode ? "#e5e7eb" : "#0f172a",
       }}
     >
-      <div className="max-w-6xl mx-auto px-6">
+      {/* Glow */}
+      <div className="absolute top-[-100px] right-[-100px] w-[260px] h-[260px] bg-teal-500/10 blur-[120px] rounded-full"></div>
 
-        {/* Heading */}
+      {/* CONTAINER */}
+      <div className="w-full max-w-[1350px] mx-auto px-6 lg:px-10">
+
+        {/* HEADING */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold mb-12"
+          viewport={{ once: true }}
+          className="text-5xl font-bold mb-12"
         >
-          My Technical<span className="text-teal-500"> Expertise</span>
+          My Technical
+          <span className="text-teal-500">
+            {" "}Expertise
+          </span>
         </motion.h2>
 
-        {/* Categories */}
+        {/* CATEGORIES */}
         <div className="space-y-10">
           {skillCategories.map((category, i) => (
             <div key={i}>
-              
-              {/* Category Title */}
-              <h3 className="text-lg font-semibold mb-4 text-teal-500">
+
+              {/* CATEGORY TITLE */}
+              <h3 className="text-base font-semibold mb-4 text-teal-500 tracking-wide">
                 {category.title}
               </h3>
 
-              {/* Skills Grid */}
-              <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4">
+              {/* SKILLS GRID */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+
                 {category.skills.map((skill, index) => {
                   const Icon = skill.icon;
 
@@ -104,21 +126,37 @@ export default function Skills({ darkMode }) {
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
                       transition={{ delay: index * 0.04 }}
-                      className="flex flex-col items-center justify-center p-4 rounded-xl hover:-translate-y-1 transition-all duration-300"
+                      className="flex flex-col items-center justify-center rounded-xl p-4 hover:-translate-y-1 transition-all duration-300 border backdrop-blur-md"
                       style={{
-                        backgroundColor: darkMode ? "#243041" : "#ffffff",
+                        borderColor: darkMode
+                          ? "#374151"
+                          : "#e2e8f0",
+
+                        backgroundColor: darkMode
+                          ? "rgba(255,255,255,0.03)"
+                          : "rgba(255,255,255,0.55)",
+
                         boxShadow: darkMode
-                          ? "0 6px 15px rgba(20,184,166,0.05)"
-                          : "0 6px 15px rgba(0,0,0,0.04)",
+                          ? "0 6px 15px rgba(20,184,166,0.04)"
+                          : "0 6px 15px rgba(0,0,0,0.03)",
                       }}
                     >
-                      <Icon size={26} color={skill.color} className="mb-2" />
+                      {/* ICON */}
+                      <Icon
+                        size={24}
+                        color={skill.color}
+                        className="mb-2"
+                      />
 
+                      {/* NAME */}
                       <span
-                        className="text-xs sm:text-sm text-center"
+                        className="text-xs sm:text-sm text-center leading-tight"
                         style={{
-                          color: darkMode ? "#d1d5db" : "#475569",
+                          color: darkMode
+                            ? "#d1d5db"
+                            : "#475569",
                         }}
                       >
                         {skill.name}
@@ -127,11 +165,9 @@ export default function Skills({ darkMode }) {
                   );
                 })}
               </div>
-
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

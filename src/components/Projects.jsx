@@ -7,29 +7,29 @@ export default function Projects({ darkMode }) {
   return (
     <section
       id="projects"
-      className="py-16"
+      className="py-16 md:py-24"
       style={{
         backgroundColor: darkMode ? "#1f2937" : "#f8fafc",
         color: darkMode ? "#e5e7eb" : "#0f172a",
       }}
     >
-      <div className="max-w-6xl mx-auto px-3">
+      <div className="w-full max-w-[1350px] mx-auto px-6 lg:px-10">
 
         {/* Heading */}
         <motion.div
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  className="text-center mb-16"
->
-  <div className="relative inline-block">
-    <h2 className="text-4xl font-bold">
-      Featured <span className="text-teal-500">Projects</span>
-    </h2>
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="text-center mb-16"
+        >
+          <div className="relative inline-block">
+            <h2 className="text-4xl font-bold">
+              Featured <span className="text-teal-500">Projects</span>
+            </h2>
 
-    {/* Underline */}
-    <span className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-46 h-[3px] bg-teal-500 rounded"></span>
-  </div>
-</motion.div>
+            {/* Underline */}
+            <span className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-46 h-[3px] bg-teal-500 rounded"></span>
+          </div>
+        </motion.div>
 
         {/* Grid */}
         <div className="grid md:grid-cols-2 gap-8">
@@ -52,19 +52,19 @@ export default function Projects({ darkMode }) {
             >
               {/* Image */}
               <a
-                  href={work.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                href={work.link}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-              <div className="h-48 sm:h-60 md:h-72 lg:h-80 overflow-hidden">
-                <img
-                  src={work.img}
-                  alt={work.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                />
-              </div>
-              
+                <div className="h-48 sm:h-60 md:h-72 lg:h-80 overflow-hidden">
+                  <img
+                    src={work.img}
+                    alt={work.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                  />
+                </div>
               </a>
+
               {/* Content
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-3">

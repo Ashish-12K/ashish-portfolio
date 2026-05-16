@@ -5,34 +5,42 @@ export default function Services({ darkMode }) {
   return (
     <section
       id="services"
-      className="pt-16 pb-16"
+      className="relative py-10 md:py-12 overflow-hidden"
       style={{
         backgroundColor: darkMode ? "#1f2937" : "#f8fafc",
         color: darkMode ? "#e5e7eb" : "#0f172a",
       }}
     >
-      <div className="max-w-6xl mx-auto px-6">
+      {/* Glow */}
+      <div className="absolute bottom-[-100px] left-[-100px] w-[260px] h-[260px] bg-teal-500/10 blur-[120px] rounded-full"></div>
 
-        {/* Heading */}
+      {/* CONTAINER */}
+      <div className="w-full max-w-[1350px] mx-auto px-6 lg:px-10">
+
+        {/* HEADING */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-5xl font-bold mb-4"
         >
           What I <span className="text-teal-500">Do</span>
         </motion.h2>
 
-        {/* Description */}
+        {/* DESCRIPTION */}
         <p
-          className="max-w-2xl mb-10 text-sm"
-          style={{ color: darkMode ? "#9ca3af" : "#64748b" }}
+          className="max-w-2xl mb-10 text-sm leading-relaxed"
+          style={{
+            color: darkMode ? "#9ca3af" : "#64748b",
+          }}
         >
           Focused on building high-converting websites and Shopify stores that help businesses grow and increase sales.
         </p>
 
-        {/* Cards */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* CARDS */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+
           {services.map((service, index) => {
             const Icon = service.icon;
 
@@ -41,16 +49,28 @@ export default function Services({ darkMode }) {
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.08, duration: 0.4 }}
-                className="group p-4 sm:p-5 rounded-xl transition-all duration-300 hover:-translate-y-1"
+                viewport={{ once: true }}
+                transition={{
+                  delay: index * 0.08,
+                  duration: 0.4,
+                }}
+                className="group rounded-xl p-4 sm:p-5 border backdrop-blur-md hover:-translate-y-1 transition-all duration-300"
                 style={{
-                  backgroundColor: darkMode ? "#243041" : "#ffffff",
+                  borderColor: darkMode
+                    ? "#374151"
+                    : "#e2e8f0",
+
+                  backgroundColor: darkMode
+                    ? "rgba(255,255,255,0.03)"
+                    : "rgba(255,255,255,0.55)",
+
                   boxShadow: darkMode
-                    ? "0 8px 20px rgba(20,184,166,0.05)"
-                    : "0 8px 20px rgba(0,0,0,0.04)",
+                    ? "0 6px 15px rgba(20,184,166,0.04)"
+                    : "0 6px 15px rgba(0,0,0,0.03)",
                 }}
               >
-                {/* Icon */}
+
+                {/* ICON */}
                 <div className="mb-3">
                   <Icon
                     size={24}
@@ -58,15 +78,19 @@ export default function Services({ darkMode }) {
                   />
                 </div>
 
-                {/* Title */}
+                {/* TITLE */}
                 <h3 className="text-sm sm:text-base font-semibold mb-2">
                   {service.title}
                 </h3>
 
-                {/* Description */}
+                {/* DESCRIPTION */}
                 <p
-                  className="text-xs sm:text-sm leading-snug"
-                  style={{ color: darkMode ? "#d1d5db" : "#475569" }}
+                  className="text-xs sm:text-sm leading-relaxed"
+                  style={{
+                    color: darkMode
+                      ? "#d1d5db"
+                      : "#475569",
+                  }}
                 >
                   {service.desc}
                 </p>
@@ -74,7 +98,6 @@ export default function Services({ darkMode }) {
             );
           })}
         </div>
-
       </div>
     </section>
   );
