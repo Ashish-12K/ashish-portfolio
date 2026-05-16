@@ -9,6 +9,33 @@ import {
   Headphones,
 } from "lucide-react";
 
+const stats = [
+  {
+    icon: Rocket,
+    title: "15+",
+    text: "Projects Completed",
+    color: "text-teal-500",
+  },
+  {
+    icon: Star,
+    title: "Fast",
+    text: "On-Time Delivery",
+    color: "text-yellow-500",
+  },
+  {
+    icon: ShieldCheck,
+    title: "100%",
+    text: "Client Satisfaction",
+    color: "text-cyan-500",
+  },
+  {
+    icon: Headphones,
+    title: "Support",
+    text: "After Delivery",
+    color: "text-teal-500",
+  },
+];
+
 export default function Hero({ darkMode }) {
   return (
     <section
@@ -19,34 +46,42 @@ export default function Hero({ darkMode }) {
         color: darkMode ? "#e5e7eb" : "#0f172a",
       }}
     >
-      {/* Glow Background */}
-      <div className="absolute top-[-100px] right-[-100px] w-[300px] h-[300px] bg-teal-500/20 blur-[120px] rounded-full"></div>
+      {/* Optimized Glow */}
+      <div className="absolute top-[-80px] right-[-80px] w-[220px] h-[220px] bg-teal-500/10 blur-[70px] rounded-full pointer-events-none"></div>
 
       {/* MAIN CONTAINER */}
       <div className="w-full max-w-[1350px] mx-auto px-6 lg:px-10 grid md:grid-cols-2 gap-6 items-center">
 
         {/* LEFT SIDE */}
-        <div className="z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35 }}
+          className="z-10"
+        >
 
           {/* TAG */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full border border-teal-500/20 bg-white/40 backdrop-blur-md"
+          <div
+            className="
+              inline-flex items-center gap-2
+              mb-4 px-4 py-2 rounded-full border
+            "
+            style={{
+              borderColor: "rgba(20,184,166,0.2)",
+              backgroundColor: darkMode
+                ? "rgba(255,255,255,0.03)"
+                : "rgba(255,255,255,0.65)",
+            }}
           >
             <div className="w-2 h-2 rounded-full bg-teal-500"></div>
 
             <span className="text-[11px] uppercase tracking-[3px] text-teal-500 font-medium">
               Available for freelance
             </span>
-          </motion.div>
+          </div>
 
           {/* HEADING */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl sm:text-4xl lg:text-5xl font-bold leading-[1.08]"
-          >
+          <h1 className="text-4xl sm:text-4xl lg:text-5xl font-bold leading-[1.08]">
             I build modern <br />
 
             <span className="text-teal-500">
@@ -56,151 +91,102 @@ export default function Hero({ darkMode }) {
             <br />
 
             websites
-          </motion.h1>
+          </h1>
 
           {/* SUBTEXT */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+          <p
             className="max-w-md mt-4 text-sm md:text-base leading-relaxed"
             style={{
               color: darkMode ? "#9ca3af" : "#64748b",
             }}
           >
             Helping businesses grow with fast, scalable and beautifully designed web applications.
-          </motion.p>
+          </p>
 
           {/* BUTTONS */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex gap-4 mt-6 flex-wrap"
-          >
+          <div className="flex gap-4 mt-6 flex-wrap">
+
             <a
               href="#projects"
-              className="bg-gradient-to-r from-teal-500 to-cyan-500 hover:scale-105 transition-all duration-300 px-6 py-3 rounded-2xl text-white font-semibold shadow-lg shadow-teal-500/20 text-sm"
+              className="
+                bg-gradient-to-r from-teal-500 to-cyan-500
+                hover:scale-105
+                transition-transform duration-200
+                px-6 py-3 rounded-2xl
+                text-white font-semibold text-sm
+                will-change-transform
+              "
             >
               View Projects
             </a>
 
             <a
               href="https://wa.me/917992218094"
-              className="px-6 py-3 rounded-2xl border backdrop-blur-md font-semibold hover:border-teal-400 transition-all text-sm"
+              className="
+                px-6 py-3 rounded-2xl border
+                font-semibold text-sm
+                transition-colors duration-200
+              "
               style={{
                 borderColor: darkMode ? "#4b5563" : "#cbd5e1",
                 backgroundColor: darkMode
                   ? "rgba(255,255,255,0.03)"
-                  : "rgba(255,255,255,0.4)",
+                  : "rgba(255,255,255,0.7)",
               }}
             >
               Let's Talk
             </a>
-          </motion.div>
+          </div>
 
           {/* STATS */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3"
-          >
+          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
 
-            {/* CARD 1 */}
-            <div
-              className="rounded-2xl p-3 border backdrop-blur-md"
-              style={{
-                borderColor: darkMode ? "#374151" : "#e2e8f0",
-                backgroundColor: darkMode
-                  ? "rgba(255,255,255,0.03)"
-                  : "rgba(255,255,255,0.55)",
-              }}
-            >
-              <Rocket className="text-teal-500 mb-2" size={18} />
+            {stats.map((item, index) => {
+              const Icon = item.icon;
 
-              <h3 className="text-lg font-bold">
-                15+
-              </h3>
+              return (
+                <div
+                  key={index}
+                  className="
+                    rounded-2xl p-3 border
+                    transition-transform duration-200
+                    hover:-translate-y-1
+                    will-change-transform
+                  "
+                  style={{
+                    borderColor: darkMode ? "#374151" : "#e2e8f0",
 
-              <p className="text-[11px] text-slate-500">
-                Projects Completed
-              </p>
-            </div>
+                    backgroundColor: darkMode
+                      ? "rgba(255,255,255,0.03)"
+                      : "rgba(255,255,255,0.75)",
 
-            {/* CARD 2 */}
-            <div
-              className="rounded-2xl p-3 border backdrop-blur-md"
-              style={{
-                borderColor: darkMode ? "#374151" : "#e2e8f0",
-                backgroundColor: darkMode
-                  ? "rgba(255,255,255,0.03)"
-                  : "rgba(255,255,255,0.55)",
-              }}
-            >
-              <Star className="text-yellow-500 mb-2" size={18} />
+                    boxShadow:
+                      "0 2px 6px rgba(0,0,0,0.04)",
+                  }}
+                >
+                  <Icon
+                    className={`${item.color} mb-2`}
+                    size={18}
+                  />
 
-              <h3 className="text-lg font-bold">
-                Fast
-              </h3>
+                  <h3 className="text-lg font-bold">
+                    {item.title}
+                  </h3>
 
-              <p className="text-[11px] text-slate-500">
-                On-Time Delivery
-              </p>
-            </div>
-
-            {/* CARD 3 */}
-            <div
-              className="rounded-2xl p-3 border backdrop-blur-md"
-              style={{
-                borderColor: darkMode ? "#374151" : "#e2e8f0",
-                backgroundColor: darkMode
-                  ? "rgba(255,255,255,0.03)"
-                  : "rgba(255,255,255,0.55)",
-              }}
-            >
-              <ShieldCheck
-                className="text-cyan-500 mb-2"
-                size={18}
-              />
-
-              <h3 className="text-lg font-bold">
-                100%
-              </h3>
-
-              <p className="text-[11px] text-slate-500">
-                Client Satisfaction
-              </p>
-            </div>
-
-            {/* CARD 4 */}
-            <div
-              className="rounded-2xl p-3 border backdrop-blur-md"
-              style={{
-                borderColor: darkMode ? "#374151" : "#e2e8f0",
-                backgroundColor: darkMode
-                  ? "rgba(255,255,255,0.03)"
-                  : "rgba(255,255,255,0.55)",
-              }}
-            >
-              <Headphones
-                className="text-teal-500 mb-2"
-                size={18}
-              />
-
-              <h3 className="text-lg font-bold">
-                Support
-              </h3>
-
-              <p className="text-[11px] text-slate-500">
-                After Delivery
-              </p>
-            </div>
-          </motion.div>
-        </div>
+                  <p className="text-[11px] text-slate-500">
+                    {item.text}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </motion.div>
 
         {/* RIGHT SIDE */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4 }}
           className="flex justify-center md:justify-end relative"
         >
           <div className="relative flex items-center justify-center">
@@ -209,20 +195,25 @@ export default function Hero({ darkMode }) {
             <img
               src={profile2}
               alt="Ashish"
-              className="relative z-10 
-              w-[340px] 
-              sm:w-[420px] 
-              md:w-[620px] 
-              lg:w-[680px]
-              object-contain 
-              md:-mt-2"
+              loading="eager"
+              decoding="async"
+              className="
+                relative z-10
+                w-[300px]
+                sm:w-[400px]
+                md:w-[560px]
+                lg:w-[620px]
+                object-contain
+                md:-mt-2
+                select-none
+              "
             />
           </div>
         </motion.div>
       </div>
 
-      {/* FLOATING BUBBLES */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* BUBBLES - hidden on mobile */}
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
         <Bubble delay={0} size={20} left={10} />
         <Bubble delay={1} size={30} left={30} />
         <Bubble delay={2} size={25} left={50} />
